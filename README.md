@@ -5,18 +5,21 @@
 ![](https://github.com/IvanJosipovic/BlazorTable/workflows/CI/CD/badge.svg)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=IvanJosipovic_BlazorTable&metric=alert_status)](https://sonarcloud.io/dashboard?id=IvanJosipovic_BlazorTable)
 
-**Work in progress!** 
 
-A simple Table Control for Blazor with Sorting, Paging and Filtering
+Blazor Table Component with Sorting, Paging and Filtering
 
 ## Install
 
-- Add Nuget [BlazorTable](https://www.nuget.org/packages/BlazorTable)
-- Add ```<script src="_content/BlazorTable/BlazorTable.min.js"></script>``` to the index.html or _Hosts.cshtml
+- Add [BlazorTable Nuget](https://www.nuget.org/packages/BlazorTable)
+  - dotnet add package BlazorTable
+  - or
+  - Install-Package BlazorTable  
+- Add to the index.html or _Hosts.cshtml
+  - `<script src="_content/BlazorTable/BlazorTable.min.js"></script>`
 
 ## Features
 - Column Reordering
-- Edit Mode ([Template Switching](/src/BlazorTable.Sample/Pages/EditMode.razor))
+- Edit Mode ([Template Switching](/src/BlazorTable.Sample.Shared/Pages/EditMode.razor))
 - Client Side
 	- Paging
 	- Sorting
@@ -30,40 +33,20 @@ A simple Table Control for Blazor with Sorting, Paging and Filtering
 - Bootstrap 4 CSS
 
 ## Sample
-[Example](/src/BlazorTable.Sample/Pages/Index.razor)
+[Example Page](/src/BlazorTable.Sample.Shared/Pages/Index.razor)
 
 ```csharp
 <Table TableItem="PersonData" Items="data" PageSize="15">
-    <Column TableItem="PersonData" Title="Id" Field="@(x => x.id)" Sortable="true" Filterable="true" Width="10%">
-        <Template>
-            @context.id
-        </Template>
-    </Column>
-    <Column TableItem="PersonData" Title="First Name" Field="@(x => x.first_name)" Sortable="true" Filterable="true" Width="20%">
-        <Template>
-            @context.first_name
-        </Template>
-    </Column>
-    <Column TableItem="PersonData" Title="Last Name" Field="@(x => x.last_name)" Sortable="true" Filterable="true" Width="20%">
-        <Template>
-            @context.last_name
-        </Template>
-    </Column>
+    <Column TableItem="PersonData" Title="Id" Field="@(x => x.id)" Sortable="true" Filterable="true" Width="10%" />
+    <Column TableItem="PersonData" Title="First Name" Field="@(x => x.first_name)" Sortable="true" Filterable="true" Width="20%" />
+    <Column TableItem="PersonData" Title="Last Name" Field="@(x => x.last_name)" Sortable="true" Filterable="true" Width="20%" />
     <Column TableItem="PersonData" Title="Email" Field="@(x => x.email)" Sortable="true" Filterable="true" Width="20%">
         <Template>
             <a href="mailto:@context.email">@context.email</a>
         </Template>
     </Column>
-    <Column TableItem="PersonData" Title="Confirmed" Field="@(x => x.confirmed)" Sortable="true" Filterable="true" Width="10%">
-        <Template>
-            @context.confirmed.ToString()
-        </Template>
-    </Column>
-    <Column TableItem="PersonData" Title="Fund" Field="@(x => x.fund)" Sortable="true" Filterable="true" Width="10%">
-        <Template>
-            $@context.fund
-        </Template>
-    </Column>
+    <Column TableItem="PersonData" Title="Confirmed" Field="@(x => x.confirmed)" Sortable="true" Filterable="true" Width="10%" />
+    <Column TableItem="PersonData" Title="Price" Field="@(x => x.price)" Sortable="true" Filterable="true" Width="10%" Format="C" Align="Align.Right" />
     <Column TableItem="PersonData" Title="Created Date" Field="@(x => x.created_date)" Sortable="true" Width="10%">
         <Template>
             @context.created_date.ToShortDateString()
