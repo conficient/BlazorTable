@@ -54,6 +54,6 @@ Blazor Table Component with Sorting, Paging and Filtering
             @context.created_date.ToShortDateString()
         </Template>
     </Column>
-    <Pager TableItem="PersonData" ShowPageNumber="true" ShowTotalCount="true" />
+    <Pager ShowPageNumber="true" ShowTotalCount="true" />
 </Table>
 ```

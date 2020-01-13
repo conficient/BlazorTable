@@ -11,6 +11,9 @@ namespace BlazorTable
     {
         private const int DEFAULT_PAGE_SIZE = 10;
 
+        /// <summary>
+        /// Captures additional attributes to apply to table
+        /// </summary>
         [Parameter(CaptureUnmatchedValues = true)]
         public IReadOnlyDictionary<string, object> UnknownParameters { get; set; }
 
@@ -30,7 +33,7 @@ namespace BlazorTable
         /// Table Body Class
         /// </summary>
         [Parameter]
-        public string TableBodyClass { get; set; } = "";
+        public string TableBodyClass { get; set; } = string.Empty;
 
         /// <summary>
         /// Expression to set Row Class
@@ -287,7 +290,7 @@ namespace BlazorTable
         /// Set the template to use for empty data
         /// </summary>
         /// <param name="emptyDataTemplate"></param>
-        public void SetEmptyDataTemplate(EmptyDataTemplate<TableItem> emptyDataTemplate)
+        public void SetEmptyDataTemplate(EmptyDataTemplate emptyDataTemplate)
         {
             _emptyDataTemplate = emptyDataTemplate?.Template;
         }

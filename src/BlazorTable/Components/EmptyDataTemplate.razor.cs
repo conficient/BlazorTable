@@ -10,14 +10,13 @@ namespace BlazorTable
     /// <summary>
     /// Child content for empty dataset
     /// </summary>
-    /// <typeparam name="TableItem"></typeparam>
-    public partial class EmptyDataTemplate<TableItem>
+    public partial class EmptyDataTemplate
     {
         /// <summary>
         /// Parent table
         /// </summary>
         [CascadingParameter(Name = "Table")]
-        public ITable<TableItem> Table { get; set; }
+        public ITable Table { get; set; }
 
         /// <summary>
         /// Content to show
